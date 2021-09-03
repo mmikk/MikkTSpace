@@ -1664,7 +1664,12 @@ static void QuickSortEdges(SEdge * pSortBuffer, int iLeft, int iRight, const int
 
 	// Random
 	t=uSeed&31;
-	t=(uSeed<<t)|(uSeed>>(32-t));
+
+	if (t != 0)
+		t=(uSeed<<t)|(uSeed>>(32-t)); // This triggers Clang's UBSan if t == 0
+	else
+		t = uSeed;
+
 	uSeed=uSeed+t+3;
 	// Random end
 
