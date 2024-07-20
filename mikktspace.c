@@ -751,6 +751,7 @@ static void GenerateSharedVerticesIndexListSlow(int piTriList_in_and_out[], cons
 					const SVec3 vP2 = GetPosition(pContext, index2);
 					const SVec3 vN2 = GetNormal(pContext, index2);
 					const SVec3 vT2 = GetTexCoord(pContext, index2);
+					index2rec = index2;
 					
 					if (veq(vP,vP2) && veq(vN,vN2) && veq(vT,vT2))
 						bFound = TTRUE;
